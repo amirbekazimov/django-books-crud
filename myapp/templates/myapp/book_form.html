@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% if object %}Edit{% else %}Create{% endif %} Book</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4">{% if object %}Edit{% else %}Create{% endif %} Book</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.title.label_tag }} {{ form.title|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+          {{ form.author.label_tag }} {{ form.author|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+          {{ form.price.label_tag }} {{ form.price|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.publish_date.id_for_label }}"
+            >Publish date:</label
+          >
+          <input
+            type="date"
+            id="{{ form.publish_date.id_for_label }}"
+            name="{{ form.publish_date.html_name }}"
+            class="form-control w-25 mt-2"
+            value="{{ form.publish_date.value|date:'Y-m-d' }}"
+          />
+          {% for error in form.publish_date.errors %}
+          <div class="invalid-feedback">{{ error }}</div>
+          {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {% if object %}Update{% else %}Submit{% endif %}
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
