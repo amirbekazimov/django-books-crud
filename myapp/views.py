@@ -26,7 +26,7 @@ class BookCreateView(CreateView):
 
 class BookUpdateView(UpdateView):
     model = Book
-    fields = ['title', 'author', 'price', 'publish_date']
+    fields = ['title', 'price', 'publish_date']
     template_name = 'myapp/book_form.html'
 
     def get_success_url(self):

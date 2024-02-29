@@ -8,13 +8,23 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     />
+    <style>
+      .book-details {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-4">
-      <h1>{{ book.title }}</h1>
-      <p><strong>Author:</strong> {{ book.author }}</p>
-      <p><strong>Price:</strong> {{ book.price }}</p>
-      <p><strong>Publish Date:</strong> {{ book.publish_date }}</p>
+      <div class="book-details">
+        <h1 class="mb-3">{{ book.title }}</h1>
+        <p><strong>Price:</strong> {{ book.price }}</p>
+        <p><strong>Publish Date:</strong> {{ book.publish_date }}</p>
+      </div>
 
       <form
         action="{% url 'book_delete' book.id %}"

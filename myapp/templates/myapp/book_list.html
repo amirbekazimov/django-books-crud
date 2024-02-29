@@ -11,58 +11,20 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="container">
     <h1>List of books</h1>
 
-    <!-- Button trigger modal -->
     <button
       type="button"
-      class="btn btn-success"
+      class="btn btn-success mt-1"
       data-toggle="modal"
       data-target="#addBookModal"
     >
       Add New Book
     </button>
 
-    <!-- <div class="w-25 p-2">
-      <form method="post" action="{% url 'book_new' %}">
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="price">Price</label>
-          <input
-            type="number"
-            step="0.01"
-            class="form-control"
-            id="price"
-            name="price"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="publish_date">Publish Date</label>
-          <input
-            type="date"
-            class="form-control"
-            id="publish_date"
-            name="publish_date"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div> -->
-
-    <table class="table container">
-      <thead>
+    <table class="table mt-3">
+      <thead class="bg-dark text-white">
         <tr>
           <th>Name</th>
           <th>Author</th>
